@@ -31,7 +31,6 @@ public class Solution {
             a = Integer.parseInt(bufferedReader.readLine());
             b = Integer.parseInt(bufferedReader.readLine());
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,16 +38,17 @@ public class Solution {
         if(a <= 0 || b <= 0)
                 throw new Exception();
 
-        while(a != b) {
-            if(a > b) {
-                a = a - b;
-            } else {
-                b = b - a;
-            }
+        System.out.println(nod(a, b, Math.max(a, b)));
+
+    }
+
+    private static int nod(int a, int b, int max) {
+        if(a%max == 0 && b%max == 0) {
+            return max;
+        } else {
+            max--;
+            return nod(a, b, max);
         }
-
-        System.out.println(a);
-
     }
 
 }
