@@ -36,7 +36,25 @@ Template pattern
 11. Метод pour в классе TeaMaker должен выводить на экран фразу "Заливаем кипятком".
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Solution {
-    public static void main(String[] args) {
+
+    private static DrinkMaker drinkMaker;
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        String kindOf = bufferedReader.readLine();
+        if(kindOf.equals("latte"))
+            drinkMaker = new LatteMaker();
+        if(kindOf.equals("tea"))
+            drinkMaker = new TeaMaker();
+
+        if(drinkMaker != null)
+            drinkMaker.makeDrink();
+
     }
 }
