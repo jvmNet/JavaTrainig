@@ -49,8 +49,6 @@ public class Solution {
 
     public static class TestedThread extends Thread {
 
-        Thread.UncaughtExceptionHandler handler = new OurUncaughtExceptionHandler();
-
         public TestedThread(Thread.UncaughtExceptionHandler handler) {
             Thread.setDefaultUncaughtExceptionHandler(handler);
             start();
